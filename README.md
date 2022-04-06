@@ -17,7 +17,7 @@
 package main
 import "fmt"
 func main() {
-fmt.Println("Helllo World")
+    fmt.Println("Helllo World")
 }
 ```
 
@@ -31,8 +31,8 @@ available.
 package main
 import "fmt"
 func main() {
-var card string := "Ace of Spades"
-fmt.Println(card)
+    var card string := "Ace of Spades"
+    fmt.Println(card)
 }
 ```
 But there will be a little warning message, we don't have to use that method, there is another simpler alternative
@@ -40,8 +40,8 @@ But there will be a little warning message, we don't have to use that method, th
 package main
 import "fmt"
 func main() {
-card := "Ace of Spades"
-fmt.Println(card)
+    card := "Ace of Spades"
+    fmt.Println(card)
 }
 ```
 ## Functions and Return Types
@@ -49,12 +49,12 @@ fmt.Println(card)
 package main
 import "fmt"
 func main() {
-card := newCard()
-fmt.Println(card)
+    card := newCard()
+    fmt.Println(card)
 }
 
 func newCard(){
-return "Five of Diamonds"
+    return "Five of Diamonds"
 }
 ```
 So that message is essentially telling us that we just wrote a function that is expecting to return
@@ -67,12 +67,12 @@ is executed, it's going to return a value of type string to do so.
 package main
 import "fmt"
 func main() {
-card := newCard()
-fmt.Println(card)
+    card := newCard()
+    fmt.Println(card)
 }
 
 func newCard() string{
-return "Five of Diamonds"
+    return "Five of Diamonds"
 }
 
 ```
@@ -128,3 +128,64 @@ var fruitsB = [2]string{"banana", "melon"}    // array
 var fruitsC = [...]string{"papaya", "grape"}  // array
 ```
 
+The `append() function` is used to add elements to the slice. The new element is positioned after the last index. The return value of this function is the slice to which the new value has been added.
+```
+var fruits = []string{"apple", "grape", "banana"}
+var cFruits = append(fruits, "papaya")
+
+fmt.Println(fruits)  // ["apple", "grape", "banana"]
+fmt.Println(cFruits) // ["apple", "grape", "banana", "papaya"]
+```
+
+### For Loops
+```
+var fruits = []string{"apple", "grape", "banana"}
+var cFruits = append(fruits, "papaya")
+
+for i, fruit := range {
+    fmt.Println(fruit)  // "apple" or "grape" or "banana"
+}
+```
+
+## Struct in Go
+Go does not have classes that exist in other strict OOP languages. But Go has a type of data structure called Struct.  A struct is a collection of variable (or property) and/or function (or method) definitions, wrapped as a new data type with a specific name. Properties in struct, the data type can vary.
+
+### Defining Structs
+```
+type person struct {
+    firstName string
+    lastName string
+}
+```
+### Declaring Structs
+```
+package main
+
+type person struct {
+    firstName string
+    lastName string
+}
+
+func main(){
+    alex := person{firstName: "Alex", lastName: "Anderson"}
+    fmt.Println(alex) // {Alex Anderson}
+}
+```
+## Map
+Map is an associative data type in Go, in the form of a key-value pair. For each data (or value) that is stored, the key is also prepared. Key must be unique, because it is used as a marker (or identifier) ​​to access the value in question.
+
+If you look at it, the map is similar to a slice, except that the index used for accessing can be determined by its own type (the index is a key).
+
+Example:
+```
+package main
+
+func main(){
+    colors := map[string]string{
+        "red": "#ff0000",
+        "black": "#000000",
+    }
+
+    fmt.Println(colors) // map[red:#ff0000 black:#000000]
+}
+```
