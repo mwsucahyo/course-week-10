@@ -190,3 +190,42 @@ func main(){
 }
 ```
 
+## Interface
+An interface is a collection of method definitions that have no content (only definitions), which are wrapped with a specific name.
+
+Interface is a data type. The value of an object of type interface zero value is nil. An interface can start to be used if it already has its contents, namely a concrete object that has a method definition at least the same as that of the interface.
+Example:
+```
+package main
+import "fmt"
+
+type bot interface {
+    getGreeting() string
+}
+
+type englishBot struct{}
+type spanishBot struct{}
+
+func main(){
+    eb := englishBot{}
+    sb := spanishBot{}
+
+    printGreeting(eb)
+}
+
+func printGreeting(b bot){
+    fmt.Println(b.getGreeting())
+}
+
+func(englishBot) getGreeting() string {
+    return "Hi There!"
+}
+```
+
+## Go Routines
+Goroutines are very light, it only takes about 2kB of memory for one goroutine. The execution of goroutines is asynchronous, so they don't wait on each other with other goroutines.
+
+Goroutines are one of the most important parts of `concurrent programming` in Go. One of the things that makes goroutines very special is that they run on a multi-core processor. We can determine how many cores are active, the more the faster.
+
+![alt text](./images/goroutin-1.png)
+![alt text](./images/goroutin-2.png)
