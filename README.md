@@ -12,6 +12,8 @@
 ![alt text](./images/go-cli.png)
 
 ## A Simple Start
+Create new file .go
+
 - Hello World
 ```
 package main
